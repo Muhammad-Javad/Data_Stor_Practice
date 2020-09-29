@@ -14,7 +14,7 @@ class PreferenceActivity : AppCompatActivity() {
     val settingManager by lazy {
         SettingManager(this)
     }
-    var dark = false
+    val dark = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,12 +29,10 @@ class PreferenceActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 when(dark){
                     true -> {
-                        dark = false
                         settingManager.setTheme(ThemeMode.DARK)
                     }
 
                     false -> {
-                        dark = true
                         settingManager.setTheme(ThemeMode.LIGHT)
                     }
                 }
